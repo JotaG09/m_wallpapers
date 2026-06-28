@@ -37,9 +37,21 @@ const deleteWallpaper = async (req: Request, res: Response) => {
     }
 };
 
+const updateWallpaper = async (req: Request, res: Response) => {
+    try {
+        const id = Number(req.params.id);
+        const {title, category, resolution, fileName} = req.body;
+        const result = await wallpapersService.updateWallpaper(id, {title, category, resolution, fileName});
+        res.status(result.status).json(result.data);
+    } catch (error) {
+        res.status(500).json({ message: 'Erro ao atualizar wallpaper' });
+    }
+};
+
 export default {
     getAllWallpapers,
     getWallpaperById,
     createWallpaper,
-    deleteWallpaper
+    deleteWallpaper,
+    updateWallpaper
 };

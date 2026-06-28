@@ -53,9 +53,31 @@ const deleteWallpaper  = async (id : number) => {
     }
 };
 
+const updateWallpaper = async (id: number, wallpaperData: { title: string, category:string, resolution:string, fileName: string}) => {
+    try {
+        const GITHUB_USER = process.env.GITHUB_USER;
+        const REPO_NAME = process.env.REPO_NAME;
+        const BRANCH = process.env.BRANCH;
+        const imageUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${REPO_NAME}/${BRANCH}/wallpapers/${wallpaperData.fileName}`;
+        const updatedWallpaper = await prismaDatabase.wallpaper.update({
+            where: { id },
+            data: {
+                title: wallpaperData.title,
+                category: wallpaperData.category,
+                resolution: wallpaperData.resolution,
+                imageUrl: imageUrl,
+            }
+        });
+        return { status: 200, data: updatedWallpaper };
+    } catch {
+        return { status: 500, data: { message: 'Erro ao atualizar wallpaper' } };
+    }
+};
+
 export default {
     getAllWallpapers,
     getWallpaperById,
     createWallpaper,
-    deleteWallpaper
+    deleteWallpaper,
+    updateWallpaper
 };

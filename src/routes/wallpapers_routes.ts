@@ -8,5 +8,6 @@ router.get("/",wallpapersController.getAllWallpapers); // Rota inicial para todo
 router.get("/:id",wallpapersController.getWallpaperById);
 router.post("/",adminOnly, wallpapersController.createWallpaper);
 router.delete("/:id",adminOnly,wallpapersController.deleteWallpaper);
+router.put("/:id",adminOnly,wallpapersController.updateWallpaper);
 
 export default router; // Exporta o roteador'
