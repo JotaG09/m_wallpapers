@@ -78,7 +78,7 @@ function App() {
 
         <div className="flex justify-center gap-5 mb-10 mt-12">
             <a
-            href="https://github.com/JoaoG0988"
+            href="https://github.com/JotaG09"
             target="_blank"
             className="p-2 bg-zinc-900 rounded-full border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-600 transition-all"
             >
