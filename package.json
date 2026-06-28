@@ -2,17 +2,20 @@
   "name": "m_wallpapers",
   "version": "1.0.0",
   "description": "wallpapers collection that i have used on my computer.",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "setup": "npm install && cd wallpapers-frontend && npm install",
-    "start": "tsx watch src/server.ts",
-    "backend": "npm run start",
+    "dev:backend": "tsx watch src/server.ts",
+    "backend": "npm run dev:backend",
     "frontend": "cd wallpapers-frontend && npm run dev",
-    "start:all": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "start:all": "concurrently \"npm run dev:backend\" \"npm run frontend\"",
     "docker:up": "docker compose up -d",
     "prisma:migrate": "npx prisma migrate dev",
     "dev:full": "npm run docker:up && npm run start:all",
-    "stop": "docker compose down"
+    "stop": "docker compose down",
+    "build":"tsc",
+    "start":"node dist/server.js"
+
   },
   "repository": {
     "type": "git",
@@ -23,9 +26,9 @@
   "license": "ISC",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/JoaoG0988/m_wallpapers/issues"
+    "url": "https://github.com/JotaG09/m_wallpapers/issues"
   },
-  "homepage": "https://github.com/JoaoG0988/m_wallpapers#readme",
+  "homepage": "https://github.com/JotaG09/m_wallpapers#readme",
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",

@@ -8,13 +8,15 @@ interface Wallpaper {
   resolution: string;
 }
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+
 function App() {
   const [wallpapers, setWallpapers] = useState<Wallpaper[]>([])
   const [loaded, setLoaded] = useState(false) // Estado para controlar a animação de entrada
 
   useEffect(() => {
     // Procura os wallpapers na API
-    fetch('http://localhost:3000/wallpapers')
+    fetch(`${API_URL}/wallpapers`)
       .then(res => res.json())
       .then(data => {
         setWallpapers(data)
