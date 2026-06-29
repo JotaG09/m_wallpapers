@@ -17,7 +17,7 @@ model Wallpaper {
   id         Int   @id @default(autoincrement())
   title      String
   category   String?
-  imageUrl   String
+  imageUrl   String 
   resolution String?
   createdAt  DateTime @default(now())
 }
