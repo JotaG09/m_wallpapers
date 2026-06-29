@@ -29,7 +29,7 @@ npm run prisma:migrate
 | Serviço | URL | Descrição |
 |---------|-----|-----------|
 | **Frontend** | [http://localhost:5173](http://localhost:5173) | Interface principal da aplicação |
-| **Backend API** | [http://localhost:3000](http://localhost:3000) | BACKEND |
+| **Backend API** | [http://localhost:3000/wallpapers](http://localhost:3000/wallpapers) | BACKEND |
 | **Prisma Studio** | [http://localhost:5555](http://localhost:5555) | Visualização do banco de dados Prisma |
 
 
